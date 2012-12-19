@@ -3,8 +3,4 @@
     <%= render 'profile' %>
     <%= render :partial => 'activities/activity_stream' %>
   <% end %>
-<% else %>
-  <% cache cache_key_for("sections", "about") do %>
-    <%= render 'pages/sections/about' %>
-  <% end %>
 <% end %>

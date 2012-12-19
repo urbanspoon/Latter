@@ -38,7 +38,7 @@ describe Activity do
       :challenger_score => 21,
       :challenged_score => 10
     })
-    completed_game = "#{game.challenger.name} completed their game against #{game.challenged.name} and won! (#{game.score})"
+    completed_game = "#{game.challenger.name} completed a game against #{game.challenged.name} and won! (#{game.score})"
     Activity.should_receive(:create).with({:message => completed_game}).at_least(1).times.and_return(true)
     Activity.completed_game(game)
   end

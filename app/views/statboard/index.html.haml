@@ -1,0 +1,5 @@
+%h1#header Ping Pong Ladder
+.rankings
+  %ol
+    - @players.each do |p|
+      %li= p.name

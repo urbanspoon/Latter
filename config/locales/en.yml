@@ -9,8 +9,8 @@ en:
         password: Password
         new_password: New Password
         new_password_confirmation: Confirm New Password
-  navbar: 
-    links: 
+  navbar:
+    links:
       login: 'Log in'
       players: 'Players'
       all_players: 'All Players'
@@ -38,7 +38,7 @@ en:
         awarded_to: Awarded To
   activities:
     heading: Activity
-    game_complete: "%{challenger} completed their game against %{challenged} and %{result} (%{score})"
+    game_complete: "%{challenger} completed a game against %{challenged} and %{result} (%{score})"
     new_game: "%{challenger} challenged %{challenged}."
     awarded_badge: "%{player} was awarded the %{name} badge."
     attributes:
@@ -64,7 +64,7 @@ en:
       success: 'Player was successfully updated.'
     game_last_played: "- last played %{distance} ago"
     points: "Points: %{points}"
-    edit: 
+    edit:
       link: 'Edit Profile'
       heading: 'Edit Profile'
 

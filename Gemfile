@@ -5,6 +5,12 @@ gem 'rails', '~> 3.2'
 gem 'pg'
 gem 'thin'
 gem 'dalli'
+gem 'sass'
+gem 'haml'
+
+#ActiveAdmin related gems
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
 
 
 # Gems used only for assets and not required
