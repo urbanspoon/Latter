@@ -29,6 +29,24 @@
     padding-top: 50px;
     text-align: center;
 
+    .vs-container {
+      position: relative;
+    }
+
+    .vs-winner {
+      float: left;
+    }
+
+    .vs-loser {
+      float: right;
+    }
+
+    .vs-text {
+      position: absolute;
+      width: 100%;
+      text-align: middle;
+    }
+
     .rollback-btn {
       margin-top: 15px;
     }

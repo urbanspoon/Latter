@@ -8,15 +8,22 @@
     </div>
 
     <div class='span6 vs'>
-      <h1>vs.</h1>
+      <h1>
+        <div class="vs-container">
+          <div class="vs-winner"><%= game.winner.name %></div>
+          <div class="vs-loser"><%= game.loser.name %></div>
+          <div class="vs-text">vs.</div>
+          <div class="clearfix"></div>
+        </div>
+      </h1>
       <div class="label label-info">
         <%= game.complete? ? I18n.t('game.index.completed', :score => game.score) : I18n.t('game.index.challenged') %>
         <br />
       </div>
       <% if [game.challenged, game.challenger].include?(current_player) && game.can_rollback? %>
-        <%= link_to I18n.t('game.rollback.link_to'), 
+        <%= link_to I18n.t('game.rollback.link_to'),
             game,
-            :method => :delete, 
+            :method => :delete,
             :class => 'btn btn-danger rollback-btn',
             :confirm => I18n.t('game.rollback.confirm')
         %>
