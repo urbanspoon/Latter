@@ -13,15 +13,24 @@ class ScoresController < ApplicationController
   # POST /games/1/score
   def create
     @game = current_player.games.find(params[:game_id])
-    @game.complete!(params[:game])
+    @game.complete!(params[:game]) unless invalid_game?
 
     respond_to do |format|
       if @game.complete?
         format.html { redirect_to root_path, notice: I18n.t('game.complete.saved') }
         format.js   { render  }
       else
-        render :action => "new"
+        format.html {
+          flash[:notice] = "Spoon, enter a score"
+          render :new
+        }
+        format.js { render 'scores/invalid_score', layout: false }
       end
     end
+  end
+
+private
+  def invalid_game?
+    params[:game][:challenger_score].blank? or params[:game][:challenged_score].blank?
   end
 end
