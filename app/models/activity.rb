@@ -8,12 +8,22 @@ class Activity < ActiveRecord::Base
   def self.completed_game(game)
     result = game.winner?(game.challenger) ? I18n.t('game.result.won') : I18n.t('game.result.lost')
     message = I18n.t(
-      'activities.game_complete', 
-      :challenger => game.challenger.name, 
-      :challenged => game.challenged.name, 
-      :result => result, 
+      'activities.game_complete',
+      :challenger => game.challenger.name,
+      :challenged => game.challenged.name,
+      :result => result,
       :score => game.score
     )
+
+    if (token = ENV['HIPCHAT_TOKEN']) && (room = ENV['HIPCHAT_ROOM'])
+      begin
+        client = HipChat::Client.new(token)
+        client[room].send('GnopGnip', message)
+      rescue
+        logger.warn "Unable to post to HipChat"
+      end
+    end
+
     self.create(:message => message)
   end
 

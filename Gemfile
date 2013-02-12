@@ -48,6 +48,8 @@ group :development do
   gem 'debugger'
 end
 
+gem 'hipchat'
+
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rack-pjax'
